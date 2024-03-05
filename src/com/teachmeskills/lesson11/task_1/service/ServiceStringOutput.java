@@ -1,5 +1,9 @@
-package com.teachmeskills.lesson11.service;
+package com.teachmeskills.lesson11.task_1.service;
 
+/**
+ * Class ServiceStringOutput
+ * Contains methods for working this strings
+ */
 public class ServiceStringOutput {
 
     public static String task_1(String string) {
@@ -60,14 +64,26 @@ public class ServiceStringOutput {
         }
     }
 
-    public static void task_8(String string) {
+    public static String task_8(String string) {
         String[] words = string.split(" ");
-        for (String w : words) {
-            System.out.printf(w + " ");
+        String minLength = words[0];
+        String maxLength = words[0];
+
+        for (int i = 0; i < words.length; i++) {
+            if (maxLength.length() <= words[i].length()) {
+                maxLength = words[i];
+            } else {
+                minLength = words[i];
+            }
         }
+        return "Max words: " + maxLength + "\n" + "Min words: " + minLength;
     }
 
     public static String task_9(String string) {
-        return null;
+        StringBuilder sb = new StringBuilder(string + "\n");
+        for (int i = 0; i < string.length(); i++) {
+            sb.append(string.charAt(i)).append(string.charAt(i));
+        }
+        return sb.toString();
     }
 }
